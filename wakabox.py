@@ -1,3 +1,4 @@
+
 import os
 import base64
 import math
@@ -84,15 +85,15 @@ def update_gist(gist_id, content):
     gist.edit(files={FILE_NAME: InputFileContent(content)})
     
 def update_markdown(title, content):
-    content = ''
+    md = ''
     try:
-        with open(MARKDOWN_FILE, 'r') as f:
-            content = f.read()
+        with open(MARKDOWN_FILE, 'r', encoding='utf8') as f:
+            md = f.read()
     except Exception as e:
         raise Exception(f'open {MARKDOWN_FILE} failed: {e}')
-    before = content[:content.find(MD_START)]
-    after = content[content.find(MD_END) + len(MD_END):]
-    with open(MARKDOWN_FILE, 'w') as f:
+    before = md[:md.find(MD_START)]
+    after = md[md.find(MD_END) + len(MD_END):]
+    with open(MARKDOWN_FILE, 'w', encoding='utf8') as f:
         f.write(before)
         f.write('\n' + title + '\n')
         f.write('```text\n')
