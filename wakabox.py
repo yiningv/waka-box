@@ -102,6 +102,4 @@ def update_markdown(title, content):
         f.write('```\n')
         f.write(after)
 
-# main()
-
-update_markdown('aaaa', 'xxxx-update')
+main()
