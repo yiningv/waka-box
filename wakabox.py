@@ -91,8 +91,8 @@ def update_markdown(title, content):
             md = f.read()
     except Exception as e:
         raise Exception(f'open {MARKDOWN_FILE} failed: {e}')
-    before = md[:md.find(MD_START)]
-    after = md[md.find(MD_END) + len(MD_END):]
+    before = md[:md.find(MD_START)+len(MD_START)]
+    after = md[md.find(MD_END):]
     with open(MARKDOWN_FILE, 'w', encoding='utf8') as f:
         f.write(before)
         f.write('\n' + title + '\n')
@@ -102,4 +102,6 @@ def update_markdown(title, content):
         f.write('```\n')
         f.write(after)
 
-main()
+# main()
+
+update_markdown('aaaa', 'xxxx-update')
